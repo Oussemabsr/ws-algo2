@@ -1,0 +1,44 @@
+ALGORITHM sum_diff
+VAR
+    set1, set2 : ARRAY_OF integer;
+    i, j: integer;
+    summ: integer;
+    found: BOOLEAN;
+BEGIN
+    i= 0
+    j = 0
+    summ = 0
+    found = false
+    // find the difference in first tab "set1"
+
+   FOR i FROM 0 TO set1.length STEP 1 DO
+    FOR j FROM 0 TO set2.length STEP 1  DO
+        IF (set1[i]=set2[j]) THEN
+            found = true;
+            break;
+            i= i+1
+            j=j+1
+        END_IF  
+    END_FOR
+    if (NOT found) THEN
+            summ=summ+ Set[i]
+   END_IF 
+   END_FOR
+
+   // we will do the same task in order to find the difference starting by the seconde tab "set2"
+
+   FOR j FROM 0 TO set2.length  DO
+    FOR i FROM 0 TO set1.length  DO
+        IF (set1[j]=set2[i]) THEN
+            found = true;
+            break;
+            j= j+1
+            i= i+1
+        END_IF  
+    END_FOR
+    if (NOT found) THEN
+            summ=summ+ Set[j]
+    END_IF
+    END_FOR
+   Write(summ)
+END
